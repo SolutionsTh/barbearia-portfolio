@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,6 +7,9 @@
   <link rel="stylesheet" href="style.css">
   <!-- Font Awesome para Ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Calendar Embed Script -->
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
 </head>
 <body>
 
@@ -18,7 +20,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Início</a></li>
         <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#galeria">Cortes</a></li>
+        <li><a href="#galeria">Demonstrações</a></li>
         <li><a href="#agendamento" class="btn-nav">Agendar Horário</a></li>
       </ul>
       <div class="menu-toggle" id="mobile-menu">
@@ -31,40 +33,42 @@
   <section id="home" class="hero">
     <div class="hero-content">
       <h1>Estilo, Respeito e Tradição</h1>
-      <p>O seu visual em boas mãos. Garanta seu horário e transforme seu estilo.</p>
-      <a href="#agendamento" class="btn-primary"><i class="far fa-calendar-alt"></i> Agendar Agora</a>
+      <p>Cortes modernos e tradicionais com atendimento personalizado de 1 hora.</p>
+      <a href="#agendamento" class="btn-primary"><i class="far fa-calendar-alt"></i> Reservar Meu Horário</a>
     </div>
   </section>
 
   <!-- Serviços -->
   <section id="servicos" class="container">
     <h2 class="section-title">Nossos Serviços</h2>
+    <p class="section-subtitle">Todos os atendimentos possuem duração de 1 hora para garantir máxima precisão.</p>
+
     <div class="services-grid">
       <div class="service-card">
         <i class="fas fa-cut service-icon"></i>
         <h3>Corte Masculino</h3>
-        <p>Degradê, social, militar ou tesoura. Inclui lavagem e finalização com pomada.</p>
+        <p>Degradê, social, tesoura. Inclui lavagem, estilização e finalização com pomada.</p>
         <span class="price">R$ 45,00</span>
       </div>
 
       <div class="service-card">
         <i class="fas fa-user-ninja service-icon"></i>
         <h3>Barba Terapia</h3>
-        <p>Modelagem de barba com toalha quente, óleos essenciais e pós-barba.</p>
+        <p>Modelagem de barba com toalha quente, óleos essenciais e pós-barba premium.</p>
         <span class="price">R$ 35,00</span>
       </div>
 
       <div class="service-card">
         <i class="fas fa-crown service-icon"></i>
         <h3>Combo Cabelo + Barba</h3>
-        <p>O pacote completo para renovar totalmente seu estilo com desconto especial.</p>
+        <p>O pacote completo para renovar seu visual. Atendimento exclusivo de 1h.</p>
         <span class="price">R$ 70,00</span>
       </div>
 
       <div class="service-card">
         <i class="fas fa-paint-brush service-icon"></i>
         <h3>Platinado / Nevou</h3>
-        <p>Descoloração profissional mantendo a saúde do fio e do couro cabeludo.</p>
+        <p>Descoloração profissional mantendo a integridade e saúde do fio.</p>
         <span class="price">R$ 120,00</span>
       </div>
     </div>
@@ -93,77 +97,28 @@
     </div>
   </section>
 
-  <!-- Agendamento -->
+  <!-- Agendamento Direto com Google Agenda -->
   <section id="agendamento" class="container">
-    <h2 class="section-title">Agende seu Horário</h2>
-    <p class="section-subtitle">Preencha os dados abaixo para reservar seu horário e adicionar ao seu Google Calendar, iPhone ou Android.</p>
+    <h2 class="section-title">Agendar Horário</h2>
+    <p class="section-subtitle">
+      Selecione abaixo o dia e o horário disponível. Os horários são sincronizados em tempo real com a agenda do barbeiro (1h de duração por atendimento).
+    </p>
 
-    <div class="booking-wrapper">
-      <!-- Opção 1: Formulário Direto com Confirmação e Calendário -->
-      <form id="bookingForm" class="booking-form">
-        <div class="form-group">
-          <label for="clienteNome"><i class="fas fa-user"></i> Seu Nome Completo:</label>
-          <input type="text" id="clienteNome" required placeholder="Ex: João Silva">
-        </div>
+    <div class="booking-container">
+      <!-- MUDANÇA AQUI: SUBSTUITUA O SRC PELO SEU LINK DA PÁGINA DE AGENDAMENTOS DO GOOGLE -->
+      <iframe 
+        id="googleCalendarIframe"
+        src="https://calendar.google.com/calendar/appointments/schedules/ZUFizm1SqvhYLNkw6?gv=true" 
+        style="border: 0;" 
+        width="100%" 
+        height="700" 
+        frameborder="0">
+      </iframe>
+    </div>
 
-        <div class="form-group">
-          <label for="clienteTelefone"><i class="fas fa-phone"></i> Seu Telefone/WhatsApp (com DDD):</label>
-          <input type="tel" id="clienteTelefone" required placeholder="Ex: (21) 99999-8888">
-        </div>
-
-        <div class="form-group">
-          <label for="servicoSelecionado"><i class="fas fa-list"></i> Escolha o Serviço:</label>
-          <select id="servicoSelecionado" required>
-            <option value="">Selecione um serviço...</option>
-            <option value="Corte Masculino (R$ 45)">Corte Masculino (R$ 45)</option>
-            <option value="Barba Terapia (R$ 35)">Barba Terapia (R$ 35)</option>
-            <option value="Combo Cabelo + Barba (R$ 70)">Combo Cabelo + Barba (R$ 70)</option>
-            <option value="Platinado / Nevou (R$ 120)">Platinado / Nevou (R$ 120)</option>
-          </select>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="dataAgendamento"><i class="fas fa-calendar"></i> Data:</label>
-            <input type="date" id="dataAgendamento" required>
-          </div>
-          <div class="form-group">
-            <label for="horaAgendamento"><i class="fas fa-clock"></i> Horário:</label>
-            <input type="time" id="horaAgendamento" required min="09:00" max="19:00">
-          </div>
-        </div>
-
-        <button type="submit" class="btn-primary btn-block">
-          <i class="fab fa-whatsapp"></i> Confirmar Agendamento no WhatsApp
-        </button>
-      </form>
-
-      <!-- Modal/Área de Sucesso e Adicionar à Agenda -->
-      <div id="confirmationBox" class="confirmation-box hidden">
-        <i class="fas fa-check-circle success-icon"></i>
-        <h3>Agendamento Solicitado com Sucesso!</h3>
-        <p id="summaryText"></p>
-
-        <div class="calendar-actions">
-          <p><strong>Adicione ao seu calendário:</strong></p>
-          <a id="btnGoogleCalendar" target="_blank" class="btn-calendar google">
-            <i class="fab fa-google"></i> Google Agenda
-          </a>
-          <button id="btnAppleCalendar" class="btn-calendar apple">
-            <i class="fab fa-apple"></i> iPhone / Android (.ics)
-          </button>
-        </div>
-      </div>
-
-      <!-- Opção 2: Ou Incorporar o Agendamento Oficial do Google Agenda -->
-      <div class="google-calendar-embed-container">
-        <h3>Ou agende diretamente pelo Google Agenda:</h3>
-        <p>Você pode usar a página oficial de agendamentos do Google:</p>
-        <!-- COLE O SEU IFRAME DO GOOGLE AGENDA AQUI QUANDO TIVER -->
-        <div class="iframe-placeholder">
-          <p><i class="fab fa-google"></i> Para ativar o iframe oficial do Google Agenda, cole o código embed gerado no seu Google Calendar aqui.</p>
-        </div>
-      </div>
+    <!-- Canal de Dúvidas Direto -->
+    <div class="whatsapp-support">
+      <p><i class="fab fa-whatsapp"></i> Tem alguma dúvida sobre o agendamento? <a id="btnWhatsappBarber" href="#" target="_blank">Fale direto comigo no WhatsApp</a></p>
     </div>
   </section>
 
@@ -172,8 +127,8 @@
     <div class="footer-content">
       <p>&copy; 2026 Barbearia Vintage. Todos os direitos reservados.</p>
       <div class="socials">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        <a id="footerWhatsapp" href="#" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       </div>
     </div>
   </footer>
