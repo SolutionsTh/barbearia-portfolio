@@ -293,3 +293,36 @@ footer {
     display: block;
   }
 }
+
+
+.reschedule-box {
+  max-width: 700px;
+  margin: 2rem auto 0 auto;
+  background-color: var(--bg-card);
+  border: 1px solid var(--accent-gold);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.reschedule-box p {
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.btn-whatsapp-sm {
+  display: inline-block;
+  background-color: #25d366;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.btn-whatsapp-sm:hover {
+  background-color: #1eb954;
+}
