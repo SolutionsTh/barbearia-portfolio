@@ -380,3 +380,152 @@ footer {
   background-color: var(--accent-gold-hover);
   transform: translateY(-2px);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dashboard Container */
+.dashboard-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.dashboard-title {
+  color: var(--accent-gold);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* Filtro de Período */
+.filter-box {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  background-color: var(--bg-card);
+  padding: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.filter-group input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: #2b2b2b;
+  color: #fff;
+}
+
+/* KPIs (Retângulos) */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.kpi-card {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.kpi-highlight {
+  border-color: var(--accent-gold);
+}
+
+.kpi-icon {
+  font-size: 2.5rem;
+  color: var(--accent-gold);
+  margin-right: 1.2rem;
+}
+
+.kpi-info h3 {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.kpi-value {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--text-light);
+}
+
+/* Tabela de Clientes */
+.table-wrapper {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.table-wrapper h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-gold);
+}
+
+.clients-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.clients-table th, .clients-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.clients-table th {
+  background-color: #151515;
+  color: var(--accent-gold);
+}
+
+.clients-table tr:hover {
+  background-color: #282828;
+}
