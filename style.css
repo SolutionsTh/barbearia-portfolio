@@ -529,3 +529,70 @@ footer {
 .clients-table tr:hover {
   background-color: #282828;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Seção de Meses */
+.months-section {
+  margin-bottom: 2.5rem;
+}
+
+.months-section h2 {
+  font-size: 1.2rem;
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+}
+
+.months-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1rem;
+}
+
+.month-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.month-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-gold);
+}
+
+.month-card.current-month {
+  border: 2px solid var(--accent-gold);
+  background-color: #252219;
+}
+
+.month-name {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.month-count {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--text-light);
+}
+
+.month-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
