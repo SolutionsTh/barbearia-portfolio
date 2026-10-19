@@ -65,3 +65,46 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchDashboardData(startDateInput.value, endDateInput.value);
   });
 });
+
+
+
+// Dentro do seu dashboard.js:
+const monthsGrid = document.getElementById("monthsGrid");
+
+async function fetchDashboardData(start, end) {
+  // ... (código existente para carregar dados)
+
+  try {
+    let url = SCRIPT_WEB_APP_URL;
+    if (start && end) {
+      url += `?start=${start}&end=${end}`;
+    }
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    // 1. Atualiza os KPIs
+    kpiToday.innerText = data.today;
+    kpiMonth.innerText = data.month;
+    kpiPeriod.innerText = data.periodTotal;
+
+    // 2. Preenche as Caixas dos Meses do Ano
+    monthsGrid.innerHTML = "";
+    data.monthsOfYear.forEach(item => {
+      const card = document.createElement("div");
+      card.className = `month-card ${item.isCurrent ? 'current-month' : ''}`;
+      card.innerHTML = `
+        <div class="month-name">${item.month}</div>
+        <div class="month-count">${item.count}</div>
+        <div class="month-label">corte(s)</div>
+      `;
+      monthsGrid.appendChild(card);
+    });
+
+    // 3. Preenche a Tabela de Clientes
+    // ... (código existente da tabela de clientes)
+
+  } catch (error) {
+    console.error("Erro ao carregar os dados:", error);
+  }
+}
