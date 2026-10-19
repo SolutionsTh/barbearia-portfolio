@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel BI | Barbearia Vintage</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <h1 class="dashboard-title"><i class="fas fa-chart-line"></i> Indicadores de Atendimento (KPIs)</h1>
+
+    <!-- Filtro de Período -->
+    <div class="filter-box">
+      <div class="filter-group">
+        <label for="startDate">Data Inicial:</label>
+        <input type="date" id="startDate">
+      </div>
+      <div class="filter-group">
+        <label for="endDate">Data Final:</label>
+        <input type="date" id="endDate">
+      </div>
+      <button id="btnFilter" class="btn-primary"><i class="fas fa-filter"></i> Filtrar Período</button>
+    </div>
+
+    <!-- Retângulos de KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-calendar-day"></i></div>
+        <div class="kpi-info">
+          <h3>Atendimentos Hoje</h3>
+          <span id="kpiToday" class="kpi-value">0</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-calendar-alt"></i></div>
+        <div class="kpi-info">
+          <h3>Atendimentos Mês Atual</h3>
+          <span id="kpiMonth" class="kpi-value">0</span>
+        </div>
+      </div>
+
+      <div class="kpi-card kpi-highlight">
+        <div class="kpi-icon"><i class="fas fa-clock"></i></div>
+        <div class="kpi-info">
+          <h3>Total no Período Selecionado</h3>
+          <span id="kpiPeriod" class="kpi-value">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabela de Relação de Clientes x Cortes -->
+    <div class="table-wrapper">
+      <h2><i class="fas fa-users"></i> Frequência de Clientes no Período</h2>
+      <table class="clients-table">
+        <thead>
+          <tr>
+            <th>Nome do Cliente</th>
+            <th>Quantidade de Cortes / Serviços</th>
+          </tr>
+        </thead>
+        <tbody id="clientTableBody">
+          <tr>
+            <td colspan="2" style="text-align: center; color: #888;">Carregando dados da agenda...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
